@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "minh thu"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1718333119979,
+      "name": "code",
+      "status": "in-progress"
+    },
+    {
+      "id": 1718333133318,
+      "name": "học lập trình",
+      "status": "in-progress"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+.todolist {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .todolist h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .todolist input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .todolist button {
+    margin: 5px 2px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .todolist button:nth-child(2) {
+    background-color: #007bff;
+  }
+  
+  .todolist button:nth-child(3) {
+    background-color: #28a745;
+  }
+  
+  .todolist button:nth-child(4) {
+    background-color: #ffc107;
+  }
+  
+  .todolist button:nth-child(5) {
+    background-color: #17a2b8;
+  }
+  
+  .todolist ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .todolist li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .todolist li input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .todolist li button {
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .todolist li button.edit {
+    color: #ffc107;
+  }
+  
+  .todolist li button.delete {
+    color: #dc3545;
+  }
+  
+  .todolist .delete-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .todolist .delete-buttons button {
+    flex-grow: 1;
+    margin: 5px;
+    background-color: #dc3545;
+  }
+  
+  .todolist .delete-buttons button:hover {
+    background-color: #c82333;
+  }
+  
