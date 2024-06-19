@@ -51,10 +51,41 @@ export default function Todolist() {
       .catch(err => console.log(err));
   };
 
+  const deleteCompletedJobs = () => {
+    const completedJobIds = jobs.filter(job => job.status === 'completed').map(job => job.id);
+    Promise.all(completedJobIds.map(id => axios.delete(`http://localhost:8080/jobs/${id}`)))
+      .then(() => {
+        setJobs(jobs.filter(job => job.status !== 'completed'));
+      })
+      .catch(err => console.log(err));
+  };
+
+  const deleteAllJobs = () => {
+    Promise.all(jobs.map(job => axios.delete(`http://localhost:8080/jobs/${job.id}`)))
+      .then(() => {
+        setJobs([]);
+      })
+      .catch(err => console.log(err));
+  };
+
   const filteredJobs = jobs.filter(job => {
     if (filter === 'all') return true;
     return job.status === filter;
   });
+
+  const editTask = async (name: string, id: number) => {
+    let nameJob = prompt("mời nhập job mới", name);
+    let jobToUpdate = {
+      name: nameJob
+    }
+    await axios.patch(`http://localhost:8080/jobs/${id}`, jobToUpdate);
+    await axios.get("http://localhost:8080/jobs")
+      .then(response => {
+        console.log("giá trị trả về", response);
+        setJobs(response.data);
+      })
+      .catch(err => console.log(err));
+  }
 
   return (
     <div className="todolist">
@@ -80,16 +111,16 @@ export default function Todolist() {
               onChange={() => toggleJobStatus(job.id)}
             />
             {job.name}
-            <button className="edit">Sửa</button>
+            <button className="edit" onClick={() => editTask(job.name, job.id)}>Sửa</button>
             <button className="delete" onClick={() => deleteJob(job.id)}>Xóa</button>
           </li>
         ))}
       </ul>
       <div className="delete-buttons">
-        <button onClick={() => setJobs(jobs.filter(job => job.status !== 'completed'))}>
+        <button onClick={deleteCompletedJobs}>
           Xóa công việc hoàn thành
         </button>
-        <button onClick={() => setJobs([])}>
+        <button onClick={deleteAllJobs}>
           Xóa tất cả công việc
         </button>
       </div>

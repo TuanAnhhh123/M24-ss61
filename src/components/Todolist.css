@@ -17,7 +17,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
   }
   
   .todolist button {
@@ -25,7 +25,7 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: #000000;
     cursor: pointer;
   }
   
